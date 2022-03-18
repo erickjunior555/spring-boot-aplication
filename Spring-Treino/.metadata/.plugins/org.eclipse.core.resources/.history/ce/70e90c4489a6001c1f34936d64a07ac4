@@ -1,0 +1,47 @@
+package com.springboot.banco.entidades;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.DynamicUpdate;
+
+@Entity
+@Table(name="ContaCorrente", uniqueConstraints={@UniqueConstraint(columnNames={"conta"})})
+@SequenceGenerator(name="sequence", sequenceName="default_sequence", allocationSize=5)
+@DynamicUpdate
+public class ContaCorrente {
+	
+	@Id
+	@GeneratedValue(generator="sequence")
+	private Long id;
+	
+	@Column(name="agencia")
+	private String agencia;
+	
+	@Column(name="conta")
+	private String conta;
+	
+	@Column(name="num_banco")
+	private Integer numBanco;
+	
+	@Column(name="nome_banco")
+	private String nomeBanco;
+	
+	@Column(name="saldo")
+	private BigDecimal saldo;
+	
+	@Column(name="data_usuario")
+	private String dataUsuario;
+	
+	public ContaCorrente() {
+		super();
+	}
+
+}

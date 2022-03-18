@@ -1,0 +1,5 @@
+package com.springboot.banco.service;
+
+public class ClienteRepository extends JpaRepository<Cliente, Long> {
+
+}

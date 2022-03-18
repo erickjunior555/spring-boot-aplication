@@ -1,0 +1,76 @@
+package com.springboot.banco.entidades;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicUpdate;
+
+@Entity
+@Table
+@SequenceGenerator(name = "Cliente")
+@DynamicUpdate
+public class Cliente {
+	public static final int TI_CPF = 0;
+	public static final int TI_CNPJ = 1;
+	
+	@Id
+	@GeneratedValue(generator="sequence")
+	private Long id;
+	
+	@Column(name="codigo", nullable=false, length=512)
+	private String codigo;
+	 
+	@Column(name="data_cadastro", nullable=false, length=512)
+	private Date dataCadastro;
+	
+	@Column(name="ti", nullable=false)
+	private int ti;
+	
+	@Column(name="ni", nullable=false, length=14)
+	private String ni;
+	
+	@Column(name="nome", nullable=false, length=100)
+	private String nome;
+	
+	@Column(name="email", nullable=false, length=100)
+	private String email;
+	
+	@Column(name="telefone", nullable=false, length=25)
+	private String telefone;
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="conta", nullable=false)
+	private ContaCorrente conta;
+	
+	@Column(name="endereco", nullable=false, length=100)
+	private String endereco;
+	
+	@Column(name="numero", nullable=false, length=100)
+	private Integer numero;
+	
+	@Column(name="complemento", nullable=false, length=50)
+	private String complemento;
+	
+	@Column(name="bairro", nullable=false, length=50)
+	private String bairro;
+	
+	@Column(name="municipio", nullable=false, length=100)
+	private String municipio;
+	
+	@Column(name="uf", nullable=false, length=2)
+	private String uf;
+	
+	@Column(name="dataUsuario", nullable=false, length=50)
+	private String dataUsuario;
+	
+
+}

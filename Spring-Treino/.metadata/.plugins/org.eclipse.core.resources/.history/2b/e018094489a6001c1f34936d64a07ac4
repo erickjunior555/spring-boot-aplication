@@ -1,0 +1,5 @@
+package com.springboot.banco.repository;
+
+public class ContaCorrenteRepository {
+
+}

@@ -1,0 +1,36 @@
+package com.springboot.banco;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicUpdate;
+
+@Entity
+@Table
+@SequenceGenerator(name = "Cliente")
+@DynamicUpdate
+public class Cliente {
+	public static final int TI_CPF = 0;
+	public static final int TI_CNPJ = 1;
+	
+	@Id
+	@GeneratedValue(generator="sequence")
+	private Long id;
+	
+	 @Column(name="codigo", nullable=false, length=512)
+	private String codigo;
+	 
+	@Column(name="data_cadastro", nullable=false, length=512)
+	private Date dataCadastro;
+	
+	
+	
+	
+
+}

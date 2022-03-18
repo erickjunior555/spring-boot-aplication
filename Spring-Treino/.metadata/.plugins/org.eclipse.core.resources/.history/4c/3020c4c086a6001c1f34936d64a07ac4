@@ -1,0 +1,7 @@
+package com.springboot.banco.repository;
+import com.springboot.banco.entidades.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class ClienteRepository extends JpaRepository<Cliente, Long> {
+
+}
